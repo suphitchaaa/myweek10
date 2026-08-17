@@ -20,7 +20,6 @@ Route::get('/blog', function () {
 Route::get('/abouts', [AdminController::class, 'abouts'])->name("abouts");
 Route::get('/blogs', [AdminController::class, 'blogs'])->name("blogs");
 Route::get('/create', [AdminController::class, 'create'])->name("create");
-Route::get('/update', [AdminController::class, 'update'])->name("update");
 Route::post('/insert', [AdminController::class, 'insert'])->name("insert");
 
 
@@ -33,4 +32,7 @@ Route::get('/test-db', function () {
     }
 });
 
-Route::get('/delete/{id}', [AdminController::class, 'delete']);  
+Route::get('/delete/{id}', [AdminController::class, 'delete'])->name("delete");
+Route::get('/change/{id}', [AdminController::class, 'change'])->name("change");
+Route::get('/edit/{id}', [AdminController::class, 'edit'])->name("edit");
+Route::post('/update/{id}', [AdminController::class, 'update'])->name("update");

@@ -12,6 +12,7 @@
                 <th scope="col">title</th>
                 {{-- <th scope="col">content</th> --}}
                 <th scope="col">status</th>
+                <th scope="col">Edit</th>
                 <th scope="col">Control</th>
             </tr>
         </thead>
@@ -22,13 +23,13 @@
                     {{-- <td>{{ Str::limit($item->content, 10) }}</td> --}}
                     <td>
                         @if ($item->status)
-                            <spam class="btn btn-outline-success">เผยแพร่</spam>
+                            <a href="{{ Route('change', $item->id) }}" class="btn btn-success">เผยแพร่</a>
                         @else
-                            <spam class="btn btn-outline-secondary">ไม่เผยแพร่</spam>
+                            <a href="{{ Route('change', $item->id) }}" class="btn btn-secondary">ไม่เผยแพร่</a>
                         @endif
                     </td>
-
-                    <td><a href="/delete/{{ $item->id }} "class="btn btn-danger"
+                    <td><a href="{{ route('edit', $item->id) }}" class="btn btn-warning">แก้ไข</a></td>
+                    <td><a href="{{ route('delete', $item->id) }}"class="btn btn-danger"
                             onclick="return confirm('ยืนยันการลบบทความ {{ $item->title }}จริงหรือใหม่')">ลบ</a></td>
                 </tr>
             @endforeach
